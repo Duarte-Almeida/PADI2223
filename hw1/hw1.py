@@ -28,9 +28,12 @@ P_2 = np.linalg.matrix_power(P, 2)
 stat_dist = null_space((P.T - np.identity(7)))
 stat_dist = stat_dist / np.sum(stat_dist)
 
-print(np.linalg.matrix_power(P, 2).diagonal())
-print(np.linalg.matrix_power(P, 3).diagonal())
-print(np.linalg.matrix_power(P, 4).diagonal())
+print_matrix(stat_dist.T)
+print_matrix(stat_dist.T @ P)
+
+#print(np.linalg.matrix_power(P, 2).diagonal())
+#print(np.linalg.matrix_power(P, 3).diagonal())
+#print(np.linalg.matrix_power(P, 4).diagonal())
 
 print_matrix(np.linalg.matrix_power(P, 2))
 print_matrix(np.linalg.matrix_power(P, 3))
@@ -55,7 +58,6 @@ for i in range(len(P)):
         aux = dist[i][j] * P[i][j] * (stat_dist[i] / stat_dist[6])
         print(aux)
         res += aux
-        print(res)
 
 print(res)
 
